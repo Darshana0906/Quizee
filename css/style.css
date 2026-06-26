@@ -1,3 +1,63 @@
-h1 {
-    color:blue;
+* {
+    background-color: #acdde7;
+    font-family:'Poppins', sans-serif;
+
+}
+
+.dashboard {
+    width: 1260px;
+    height: 150px;
+    font-size: 80px;;
+    background-color: #a379c9;
+    font-weight: bolder;
+    font-family: monospace;
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 25px;
+}
+h2 {
+    text-align: center;
+}
+
+.role-container {
+    max-width: 1260px;
+    height: 250px;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.student-container, .teacher-container {
+    width: 150px;
+    background-color: aliceblue;
+    border-radius: 20px;
+    border: 2px solid black;
+}
+
+.role, img, .name {
+    background-color: white;
+}
+
+.name {
+    text-align: center;
+    padding-top: 150px;
+    color: #B744B8;
+    background-color: aliceblue;
+    border-radius: 20px;
+    
+}
+a {
+    text-decoration: none;
+}
+
+.student-container img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+h4 {
+    color: #636363;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
