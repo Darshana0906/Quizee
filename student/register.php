@@ -59,13 +59,15 @@
     <input type="email" name="email" placeholder="Email" required><br><br>
     <input type="password" name="password" placeholder="Password" required><br><br>
     <select name="branch" required> 
-        <option value="CSE">CSE</option>
-        <option value="ENTC">ENTC</option>
-        <option value="MECH">MECH</option>
-        <option value="CIVIL">CIVIL</option>
-        <option value="EEE">EEE</option>    
+        <option value="Computer Engineering">Computer Engineering</option>
+        <option value="Electronics and Telecommunication Engineering">Electronics and Telecommunication Engineering</option>
+        <option value="Mechanical Engineering">Mechanical Engineering</option>
+        <option value="Civil Engineering">Civil Engineering</option>
+        <option value="Electrical Engineering">Electrical Engineering</option>    
         <option value="AIML">AIML</option>
-        <option value="Instrumentation">Instrumentation</option>
+        <option value="Instrumentation and Control Engineering">Instrumentation and Control Engineering</option>
+        <option value="Manufacturing Science and Engineering">Manufacturing Science and Engineering</option>
+        <option value="Metallurgy and Materials Technology">Metallurgy and Materials Technology</option>
     </select><br><br>
     <input type="text" name="division" placeholder="Division" required><br><br>
     <input type="text" name="university" placeholder="University" required><br><br>
