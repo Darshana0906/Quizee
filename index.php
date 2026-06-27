@@ -15,14 +15,16 @@
         <div class="role-container">
             <div class="student-container">
                 <a href="student/login.php" class="role">
-                    <img src="" alt= "student">
+
+                    <img src="css/image/student.jpg" alt= "student">
+            
                     <h3 class="name">Student</h3>
                 </a>
             </div> 
 
             <div class="teacher-container">
                 <a href="teacher/login.php" class="role">
-                    <img src="" alt="teacher"> 
+                    <img src="css/image/teacher.jpg" alt="teacher"> 
                     <h3 class="name">Teacher</h3>
                 </a>
             </div> 
