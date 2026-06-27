@@ -21,6 +21,5 @@ while ($row = $result->fetch_assoc()) {
     $count++;
 }
 
-echo "✅ Done! $count passwords hashed successfully.<br>";
-echo "Ab yeh file delete kar do security ke liye.";
+echo "Done! $count passwords hashed successfully.<br>";
 ?>
