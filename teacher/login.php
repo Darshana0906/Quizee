@@ -18,14 +18,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     else{
         //database search if teacher exits or  not
         $statement = $conn->prepare(
-            "SELECT * FROM teacher WHERE username = ?"
+            "SELECT * FROM teacher WHERE name = ?"
         );
         $statement ->bind_param("s", $username);
         $statement ->execute();
         $result = $statement->get_result();
 
         if($result->num_rows === 1){
-            //teacher exit now check if password is correctt
+            //teacher exists now check if password is correctt
             $row = $result->fetch_assoc();
             if(password_verify($password, $row['password'])){
                //login hoo gayi
@@ -58,18 +58,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teacher login</title>
+    <title>Teacher Login</title>
 </head>
 <body>
     <h3?>Teacher Login</h3>
 
-    <?php
-    if(!empty($error)){
-        echo "<p> Error Occured</p>"
-    }
-    ?>
+    <?php if(!empty($error)){ ?>        
+        <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
+    <?php }?>
 
-    <form method="POST">
+    <form method="POST" action="login.php">
 
     <input type="text" name="username" placeholder="Username">
     <br><br>
@@ -77,11 +75,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     <input type="password" name="password" placeholder="Password">
     <br><br>
 
-    <button type="submit">Login</button>
+    <button type="submit" name="login">Login</button>
 
     </form>
     <p>Don't have an account?
-        <a href="teacher_register.php">Register</a>
+        <a href="register.php">Register</a>
     </p>
     
 </body>

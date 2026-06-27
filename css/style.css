@@ -2,33 +2,40 @@
     background-color: #acdde7;
     font-family:'Poppins', sans-serif;
 
+
 }
 
 .dashboard {
-    width: 1260px;
-    height: 150px;
-    font-size: 80px;;
-    background-color: #a379c9;
+    width: 1060px;
+    height: 131px;
+    font-size: 80px;
+    background-color: #a379c9c2;
     font-weight: bolder;
     font-family: monospace;
-    border-radius: 10px;
+    border-radius: 11px;
     text-align: center;
     padding-top: 25px;
+    /* padding: 0px; */
+    margin: auto;
+    margin-top: 133px;
+    /* border: #ff0000; */
 }
 h2 {
     text-align: center;
 }
 
 .role-container {
-    max-width: 1260px;
+    text-align: center;
+    max-width: 1065px;
     height: 250px;
     display: flex;
     justify-content: space-evenly;
-    
+    margin: auto;
 }
 
+
 .student-container, .teacher-container {
-    width: 150px;
+    width: 200px;
     background-color: aliceblue;
     border-radius: 20px;
     border: 2px solid black;
@@ -40,20 +47,21 @@ h2 {
 
 .name {
     text-align: center;
-    padding-top: 150px;
+    padding-top: 9px;
     color: #B744B8;
     background-color: aliceblue;
     border-radius: 20px;
-    
 }
 a {
     text-decoration: none;
 }
 
-.student-container img {
-    width: 100px;
-    height: 100px;
+.student-container img, .teacher-container img {
+    padding-top: 11px;
+    width: 174px;
+    height: 178px;
     object-fit: cover;
+    border-radius: 20px;
 }
 
 h4 {
