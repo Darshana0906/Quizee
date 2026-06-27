@@ -30,10 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             if(password_verify($password, $row['password'])){
                //login hoo gayi
                //save all info
-                $_SESSION['teacher_id'] = $row['teacher_id'];
+                $_SESSION['user_id'] = $row['teacher_id'];
                 $_SESSION['name'] = $row['name'];
-                $_SESSION['email'] = $row['email'];
-                $_SESSION['university'] = $row['university'];
+                $_SESSION['role'] = 'teacher';
 
                 //to dashboard
                 $statement->close();
