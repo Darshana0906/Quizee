@@ -7,7 +7,7 @@
     $success ="";
     //abhi agar register karke aaya hai student then success message mein hum kuch store karenge and display karenge else only form display hogs
     if(isset($_GET['registered']) && $_GET['registered'] == 1){
-        $success = "Congratulations! You are now successgullt registed to Quizee!!";
+        $success = "Congratulations! You are now successfully registered to Quizee!!";
 
     }
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
