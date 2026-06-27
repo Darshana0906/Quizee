@@ -1,7 +1,7 @@
 * {
     font-family: pliant; 
     text-align: center;
-    background-color: #90908f;
+    background-color: #d6efff;
 }
 
 .login {
@@ -10,7 +10,8 @@
     margin-top:10%;
     text-align: center;
     width: 64%;
-    background-color: #d2d3d3;
+    /* background-color: #AFA2FF; */
+    background-color: #988CE4;
     padding-top: 1.5%;
     padding-bottom: 5.5%;
     padding-left: auto;
@@ -30,14 +31,14 @@ input, select {
     padding: 9px;
     border: 1px solid #0b0b0b;
     border-radius: 4px;
-    background-color: #d2d3d3;
+    background-color: #eef8ff;
 }
 button {
     width: 16%;
     padding: 9px;
     border: none;
     border-radius: 8px;
-    background: #485252;
+    background: #4B55DA;
     color: white;
     cursor: pointer;
 }
