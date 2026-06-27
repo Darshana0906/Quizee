@@ -30,10 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             if(password_verify($password, $row['password'])){
                //login hoo gayi
                //save all info
-                $_SESSION['teacher_id'] = $row['teacher_id'];
+                $_SESSION['user_id'] = $row['teacher_id'];
                 $_SESSION['name'] = $row['name'];
-                $_SESSION['email'] = $row['email'];
-                $_SESSION['university'] = $row['university'];
+                $_SESSION['role'] = 'teacher';
 
                 //to dashboard
                 $statement->close();
@@ -59,9 +58,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teacher Login</title>
+    <link rel ="stylesheet" href = "../css/loginpage.css">
+
 </head>
 <body>
-    <h3?>Teacher Login</h3>
+    <h3>Teacher Login</h3>
 
     <?php if(!empty($error)){ ?>        
         <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>

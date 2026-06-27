@@ -48,6 +48,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student - Login</title>
+    <link rel ="stylesheet" href ="../css/loginpage.css">
+
 </head>
 <body>
     <h2> Login and get Started </h2>
