@@ -21,7 +21,7 @@ $quizes = $statement->get_result();
 </head>
 <body>
 <h2>Welcome, <?php echo htmlspecialchars($_SESSION['name']); ?>!</h2>
-<button ><a href="create_quiz.php">Create New Quiz</a></button>
+<button ><a href="quize_create.php">Create New Quiz</a></button>
 <h3>Your Quizzes:</h3>
 <?php if($quizes->num_rows === 0){ ?>
     <p>You have not created any quizzes yet.</p>
