@@ -52,18 +52,21 @@
 
 </head>
 <body>
-    <h2> Login and get Started </h2>
-    <?php if(!empty($success)){ ?>
-        <p style="color:green;"><?php echo htmlspecialchars($success); ?></p>
-    <?php }?>
-    <?php if(!empty($error)){ ?>        
-        <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
-    <?php }?>
-    <form method='POST' action="login.php">
-        <input type="text" name="username" placeholder="Username" required><br><br>
-        <input type="password" name="password" placeholder="Password" requied><br><br>
-        <button type="submit" name="login">Login</button>
-    </form> 
-    <p> Do not have an account? <a href="register.php">Register</a></p>
+    <div class = "login">
+        <h3>Student Login</h3>
+        <?php if(!empty($success)){ ?>
+            <p style="color:green;"><?php echo htmlspecialchars($success); ?></p>
+        <?php }?>
+        <?php if(!empty($error)){ ?>        
+            <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
+        <?php }?>
+
+        <form method='POST' action="login.php">
+            <input type="text" name="username" placeholder="Username" required><br><br>
+            <input type="password" name="password" placeholder="Password" requied><br><br>
+            <button type="submit" name="login">Login</button>
+        </form> 
+        <p> Do not have an account? <a href="register.php">Register</a></p>
+    </div>
 </body>
 </html>

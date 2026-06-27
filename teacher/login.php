@@ -62,27 +62,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
 </head>
 <body>
-    <h3>Teacher Login</h3>
+    <div class = "login">
+        <h3>Teacher Login</h3>
 
-    <?php if(!empty($error)){ ?>        
-        <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
-    <?php }?>
+        <?php if(!empty($error)){ ?>        
+            <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
+        <?php }?>
 
-    <form method="POST" action="login.php">
+        <form method="POST" action="login.php">
 
-    <input type="text" name="username" placeholder="Username">
-    <br><br>
+        <input type="text" name="username" placeholder="Username">
+        <br><br>
 
-    <input type="password" name="password" placeholder="Password">
-    <br><br>
+        <input type="password" name="password" placeholder="Password">
+        <br><br>
 
-    <button type="submit" name="login">Login</button>
+        <button type="submit" name="login">Login</button>
 
-    </form>
-    <p>Don't have an account?
-        <a href="register.php">Register</a>
-    </p>
-    
+        </form>
+        <p>Do not have an account?
+            <a href="register.php">Register</a>
+        </p>
+    </div>
 </body>
 </html>
 

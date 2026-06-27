@@ -47,30 +47,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <link rel ="stylesheet" href ="../css/loginpage.css">
 </head>
 <body>
-    <h2>Welcome, Register yourself at Quizee</h2>
-    <?php if(!empty($error)){ ?>
-        <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
-    <?php }?>
-    <form method="POST" action="register.php">
-    <input type="text" name="username" placeholder="Username" required><br><br>
-    <input type="text" name="mis" placeholder="MIS" required><br><br>
-    <input type="email" name="email" placeholder="Email" required><br><br>
-    <input type="password" name="password" placeholder="Password" required><br><br>
-    <select name="branch" required> 
-        <option value="CSE">CSE</option>
-        <option value="ENTC">ENTC</option>
-        <option value="MECH">MECH</option>
-        <option value="CIVIL">CIVIL</option>
-        <option value="EEE">EEE</option>    
-        <option value="AIML">AIML</option>
-        <option value="Instrumentation">Instrumentation</option>
-    </select><br><br>
-    <input type="text" name="division" placeholder="Division" required><br><br>
-    <input type="text" name="university" placeholder="University" required><br><br>
-    <button type="submit" name="register">Register</button>
-    </form>
-    <p> Already have an account? <a href="login.php">Login here</a></p>
+    <div class = "login">
+        <h3>Welcome, Register yourself at Quizee</h3>
+        <?php if(!empty($error)){ ?>
+            <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
+        <?php }?>
+        <form method="POST" action="register.php">
+        <input type="text" name="username" placeholder="Username" required><br><br>
+        <input type="text" name="mis" placeholder="MIS" required><br><br>
+        <input type="email" name="email" placeholder="Email" required><br><br>
+        <input type="password" name="password" placeholder="Password" required><br><br>
+        <select name="branch" required> 
+            <option value="CSE">CSE</option>
+            <option value="ENTC">ENTC</option>
+            <option value="MECH">MECH</option>
+            <option value="CIVIL">CIVIL</option>
+            <option value="EEE">EEE</option>    
+            <option value="AIML">AIML</option>
+            <option value="Instrumentation">Instrumentation</option>
+        </select><br><br>
+        <input type="text" name="division" placeholder="Division" required><br><br>
+        <input type="text" name="university" placeholder="University" required><br><br>
+        <button type="submit" name="register">Register</button>
+        </form>
+        <p> Already have an account? <a href="login.php">Login here</a></p>
+    </div>
 </body>
 </html>
