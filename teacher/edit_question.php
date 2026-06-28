@@ -102,7 +102,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <button type="submit">Save Changes</button>
 </form>
 
-<p><a href="manage_quiz.php?quiz_id=<?php echo $quiz_id; ?>">← Back to Manage Quiz</a></p>
+<p><a href="manage_quiz.php?quiz_id=<?php echo $quiz_id; ?>">Back to Manage Quiz</a></p>
 
 </body>
+<div style="text-align:right;">
+    <a href="../logout.php"><button>Logout</button></a>
+</div>
 </html>

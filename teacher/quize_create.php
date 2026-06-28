@@ -6,34 +6,40 @@ require_once '../config/db.php';
 
 $error = "";
 $success = "";
-$quiz_id = null;
-
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'teacher') {
+    header("Location: login.php");
+    exit;
+}
+$teacher_id = $_SESSION["user_id"];
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $title = trim($_POST["title"]);
     $duration = trim($_POST["duration"]);
-    $teacher_id = $_SESSION["teacher_id"];
     $no_of_questions = trim($_POST["no_of_questions"]);
-    $start_time = trim($_POST["start_time"]);
-    $end_time = trim($_POST["end_time"]);
-
+    $start_time_temp = trim($_POST["start_time"]);
+    $end_time_temp = trim($_POST["end_time"]);
+    $start_time = date('Y-m-d H:i:s', strtotime($start_time_temp));
+    $end_time   = date('Y-m-d H:i:s', strtotime($end_time_temp));
+    // echo "Raw start: $start_time_temp | Raw end: $end_time_temp <br>";
+    // echo "Converted start: $start_time | Converted end: $end_time <br>";
+    // exit; 
     if(empty($title) || empty($duration) || empty($no_of_questions)|| empty($start_time) || empty($end_time) ){
         $error = "Please Enter both title and duration";
     }
     elseif(!is_numeric($duration) || $duration <= 0){
-        $error = "Please Enter valid duration(in Hours)";
+        $error = "Please Enter valid duration(in minutes)";
     }
     else if(!is_numeric($no_of_questions) || $no_of_questions <= 0){
         $error = "Please Enter valid number of questions";
     }
-    elseif($start_time > 12 || $end_time > 12){
-        $error = "Invalid Start or end time";
-    }
+    else if ($end_time <= $start_time) {
+        $error = "End time must be after start time.";
+    } 
     else{
         $statement = $conn->prepare(
             "INSERT INTO quiz (title, duration, no_of_questions, teacher_id, start_time, end_time) 
             VALUES (?, ?, ?, ?, ?, ?)"
         );
-        $statement ->bind_param("siiiii", $title, $duration,$no_of_questions, $teacher_id, $start_time, $end_time);
+        $statement ->bind_param("siiiss", $title, $duration,$no_of_questions, $teacher_id, $start_time, $end_time);
         
         if($statement ->execute()){
             $quiz_id = $conn->insert_id;
@@ -69,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     <input type="text" name="title" required>
     <br><br>
 
-    <label>Duration (Hours):</label><br>
+    <label>Duration (minutes):</label><br>
     <input type="number" name="duration" required>
     <br><br>
 
@@ -78,19 +84,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     <br><br>
     
     <label>Start Time :</label><br>
-    <input type="number" name="start_time" required>
-    <select name="start_period">
-    <option value="AM">AM</option>
-    <option value="PM">PM</option>
-    </select>
+    <input type="datetime-local" name="start_time" required>
+  
+   
     <br><br>
 
     <label>End Time:</label><br>
-    <input type="number" name="end_time" required>
-    <select name="start_period">
-    <option value="AM">AM</option>
-    <option value="PM">PM</option>
-    </select>
+    <input type="datetime-local" name="end_time" required>
+   
+   
+
     <br><br>
 
 
@@ -107,4 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 <?php } ?>
 
 </body>
+<div style="text-align:right;">
+    <a href="../logout.php"><button>Logout</button></a>
+</div>
 </html>
