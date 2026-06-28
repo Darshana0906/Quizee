@@ -16,7 +16,7 @@
             <div class="student-container">
                 <a href="student/login.php" class="role">
 
-                    <img src="css/image/student.png" alt= "student">
+                    <img src="css/image/student.jpeg" alt= "student">
                      
             
                     <h3 class="name">Student</h3>
@@ -25,7 +25,7 @@
 
             <div class="teacher-container">
                 <a href="teacher/login.php" class="role">
-                    <img src="css/image/teacher.jpg" alt="teacher"> 
+                    <img src="css/image/teacher.jpeg" alt="teacher"> 
                     <h3 class="name">Teacher</h3>
                 </a>
             </div> 
