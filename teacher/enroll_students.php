@@ -33,7 +33,7 @@ $success = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $students_array = isset($_POST['students']) ? $_POST['students'] : [];
 
-    if (empty($students)) {
+    if (empty($students_array)) {
         $error = "Select at least one student.";
     } else {
         
