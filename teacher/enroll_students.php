@@ -31,25 +31,20 @@ $success = "";
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $students = isset($_POST['students']) ? $_POST['students'] : [];
+    $students_array = isset($_POST['students']) ? $_POST['students'] : [];
 
     if (empty($students)) {
         $error = "Select at least one student.";
     } else {
         
-        // $del = $conn->prepare("DELETE FROM quiz_enrollments WHERE quiz_id = ?");
-        // $del->bind_param("i", $quiz_id);
-        // $del->execute();
-        // $del->close();
-
         
-        $ins = $conn->prepare("INSERT INTO quiz_enrollments (quiz_id, student_id) VALUES (?, ?)");
-        foreach ($students as $student_id) {
+        $insert_query = $conn->prepare("INSERT INTO quiz_enrollments (quiz_id, student_id) VALUES (?, ?)");
+        foreach ($students_array as $student_id) {
             $student_id = (int)$student_id;
-            $ins->bind_param("ii", $quiz_id, $student_id);
-            $ins->execute();
+            $insert_query->bind_param("ii", $quiz_id, $student_id);
+            $insert_query->execute();
         }
-        $ins->close();
+        $insert_query->close();
 
         header("Location: enroll_students.php?quiz_id=$quiz_id&saved=1");
         exit;
@@ -137,6 +132,7 @@ $divisions = $conn->query("SELECT DISTINCT division FROM student ORDER BY divisi
         <?php while ($row = $result->fetch_assoc()) { 
             $is_checked = in_array($row['student_id'], $enrolled_ids) ? 'checked' : '';
         ?>
+        <!--checked is HTML attribute due to which  browser understand checkbox should now be shown checked-->
         <tr>
             <td>
                 <input type="checkbox"
@@ -165,12 +161,15 @@ $divisions = $conn->query("SELECT DISTINCT division FROM student ORDER BY divisi
 <a href="dashboard.php">Back to Dashboard</a>
 
 <script>
+    //this is all js llogic to select by filter
 function selectByFilter() {
-    const branch = document.getElementById('filterBranch').value;
+    const branch = document.getElementById('filterBranch').value; 
+    //console.dir(ans = document.getElementById('filterBranch') opens up dir tree with multiple attributes)
     const division = document.getElementById('filterDivision').value;
+    //core logic check box tick karnya sathi
     document.querySelectorAll('.student-checkbox').forEach(cb => {
-        const matchBranch = (branch === "" || cb.dataset.branch === branch);
-        const matchDivision = (division === "" || cb.dataset.division === division);
+        const matchBranch = (cb.dataset.branch === branch);
+        const matchDivision = (cb.dataset.division === division);
         if (matchBranch && matchDivision) {
             cb.checked = true;
         }
