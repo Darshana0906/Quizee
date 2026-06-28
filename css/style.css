@@ -38,20 +38,22 @@ h2 {
 
 .student-container, .teacher-container {
     width: 200px;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
+    background-color: white;
     border-radius: 20px;
     border: 2px solid black;
 }
 
 .role, img, .name {
     background-color: white;
+    /* background-color: aliceblue; */
 }
 
 .name {
     text-align: center;
     padding-top: 9px;
     color: #B744B8;
-    background-color: aliceblue;
+    background-color: white;
     border-radius: 20px;
 }
 a {

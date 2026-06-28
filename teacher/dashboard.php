@@ -50,4 +50,7 @@ $quizes = $statement->get_result();
     <?php } ?>  
     
 </body>
+<div style="text-align:right;">
+    <a href="../logout.php"><button>Logout</button></a>
+</div>
 </html>

@@ -147,7 +147,10 @@ $q_stmt->close();
     <?php } ?>
 </div>
 
-<a href="dashboard.php">← Back to Dashboard</a>
+<a href="dashboard.php">Back to Dashboard</a>
 
 </body>
+<div style="text-align:right;">
+    <a href="../logout.php"><button>Logout</button></a>
+</div>
 </html>

@@ -96,7 +96,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !$is_complete){
 <body>
 <div class="card">
     <h2>Add Questions to Quiz: <?= htmlspecialchars($quiz['title']) ?></h2>
-    <p class="progress">Question <?= $current_count + 1 ?> of <?= $total_questions ?></p>
+    <?php if (!$is_complete): ?>
+        <p class="progress">Question <?= $current_count + 1 ?> of <?= $total_questions ?></p>
+    <?php endif; ?>
 
     <?php if ($success): ?>
         <div class="success"><?= $success ?></div><br>
@@ -137,15 +139,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !$is_complete){
             <button style="background: #28a745;">View Quiz</button>
         </a>
     <?php endif; ?>
-    <?php if ($success && !$is_complete): ?>
+    <!-- <?php if ($success && !$is_complete): ?>
         <br><br>
         <a href="add_question.php?quiz_id=<?= $quiz_id ?>">
             <button style="background: #28a745;">Add Next Question</button>
         </a>
-    <?php endif; ?>
+    <?php endif; ?> -->
 
     <br><br>
-    <a href="dashboard.php">← Back to Dashboard</a>
+    <a href="dashboard.php">Back to Dashboard</a>
 </div>
 </body>
+<div style="text-align:right;">
+    <a href="../logout.php"><button>Logout</button></a>
+</div>
 </html>
